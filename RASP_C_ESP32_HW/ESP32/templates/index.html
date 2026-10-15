@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi x ESP32 IoT Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hub-container">
+        <header class="hub-header">
+            <div class="brand">
+                <h1>Raspberry Pi x ESP32 IoT Hub</h1>
+                <span class="hub-subtitle">Architecture #4 (Standalone ESP32 AP & Server)</span>
+            </div>
+            <div class="status-badge">
+                <span class="pulse-dot"></span> Online
+            </div>
+        </header>
+
+        <div class="controls-grid">
+            <div class="device-card">
+                <div class="device-info">
+                    <h3>GPIO 18 Light</h3>
+                    <span id="status-18" class="state-badge off">OFF</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-18" onchange="toggleLED(18)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="device-card">
+                <div class="device-info">
+                    <h3>GPIO 19 Light</h3>
+                    <span id="status-19" class="state-badge off">OFF</span>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-19" onchange="toggleLED(19)">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <section class="logs-section">
+            <div class="logs-header">
+                <h3>Activity Feed</h3>
+                <button class="clear-btn" onclick="clearLogs()">Clear Logs</button>
+            </div>
+            <div class="table-container">
+                <table id="log-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Event</th>
+                            <th>Source</th>
+                            <th>Device ID</th>
+                            <th>State</th>
+                        </tr>
+                    </thead>
+                    <tbody id="log-body">
+                        <tr class="empty-row">
+                            <td colspan="5">Waiting for system events...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div id="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
